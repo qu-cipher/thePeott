@@ -17,9 +17,12 @@ TTTTTT  T:::::T  TTTTTT h::::h hhhhh           eeeeeeeeeeee    P::::P     P:::::
       T:::::::::T       h:::::h     h:::::h  ee:::::::::::::eP::::::::P          ee:::::::::::::e   oo:::::::::::oo         tt:::::::::::tt    tt:::::::::::tt
       TTTTTTTTTTT       hhhhhhh     hhhhhhh    eeeeeeeeeeeeeePPPPPPPPPP            eeeeeeeeeeeeee     ooooooooooo             ttttttttttt        ttttttttttt
 
-                                                                                                                                                                                                                                                                                                                                                                   jjjjjj
+
 ${application.title} : ${application.version}
 Creator and Developer: QuantumCipherr
 Powered by Spring Boot ${spring-boot.version}
+____________________________________________________
 
+App is running on ${server.address} : ${server.port}
 
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
