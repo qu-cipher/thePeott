@@ -1,8 +1,6 @@
 
 ![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)
 
-
-[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
 # ThePeott Official Repository (Backend branch)
 
 This is ThePeott Telegram App's official repository. ❗❗ **NOT FINISHED** ❗❗
@@ -56,3 +54,8 @@ GET ~/api/player/get
 | **Request Param** | **Value Type** | **Required** |                **Info.**               |
 |:-----------------:|:--------------:|:------------:|:--------------------------------------:|
 |         id        |     _long_     |       ✓      | Player's telegram id to get id from it |
+
+## License
+
+[GPL-3](https://opensource.org/license/gpl-3-0)
+
