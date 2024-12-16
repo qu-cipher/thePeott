@@ -1,10 +1,9 @@
 package ir.cipher.tp28.peott28.Entity;
 
-import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import ir.cipher.tp28.peott28.Entity.Embeded.Balance;
 import ir.cipher.tp28.peott28.Entity.Embeded.Engine;
-import ir.cipher.tp28.peott28.Region;
+import ir.cipher.tp28.peott28.Entity.Obj.Region;
 import jakarta.persistence.*;
 import org.hibernate.proxy.HibernateProxy;
 

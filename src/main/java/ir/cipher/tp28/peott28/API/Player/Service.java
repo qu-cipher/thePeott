@@ -9,12 +9,13 @@ import ir.cipher.tp28.peott28.Entity.Player;
 import ir.cipher.tp28.peott28.Exceptions.PlayerAlreadyExistsException;
 import ir.cipher.tp28.peott28.Exceptions.PlayerNotFoundException;
 import ir.cipher.tp28.peott28.Exceptions.RegionNotFoundException;
-import ir.cipher.tp28.peott28.Region;
+import ir.cipher.tp28.peott28.Entity.Obj.Region;
 import ir.cipher.tp28.peott28.Repo.PlayerRepository;
+import jakarta.transaction.Transactional;
 
-import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.Optional;
+import java.util.Set;
 
 @org.springframework.stereotype.Service
 public class Service {
@@ -24,6 +25,7 @@ public class Service {
         this.repo = repo;
     }
 
+    @Transactional
     public void registerPlayer(PlayerRegistrationBody b)
             throws PlayerAlreadyExistsException {
         if (anyPlayer(b.getTelegramId())) {
@@ -56,13 +58,18 @@ public class Service {
         if (b.getRefCode() != null && !b.getRefCode().isEmpty()){
             Optional<Player> inviter = repo.getByInviteCode(b.getRefCode());
             inviter.ifPresent(p -> {
-                LinkedHashSet<Player> friends = new LinkedHashSet<>(Collections.singleton(player));
+                Set<Player> friends = null;
+                if(p.getFriends() != null) {
+                    friends = p.getFriends();
+                } else {
+                    friends = new LinkedHashSet<>();
+                }
+                friends.add(player);
                 p.setFriends(friends);
             });
         }
-        if (player.getFriends() == null) {
-            player.setFriends(new LinkedHashSet<>());
-        }
+
+        player.setFriends(new LinkedHashSet<>());
         repo.save(player);
     }
 
