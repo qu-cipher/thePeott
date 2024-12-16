@@ -75,7 +75,7 @@ public class ThePeottApp {
 	}
 
 	private void handleSayCommand(String input) {
-		String message = input.substring(5).trim();
+		String message = input.substring(4).trim();
 		if (!message.isEmpty()) {
 			System.out.println(message);
 		} else {
