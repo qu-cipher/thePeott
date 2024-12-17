@@ -3,6 +3,7 @@ package ir.cipher.tp28.peott28.Entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import ir.cipher.tp28.peott28.Entity.Embeded.Balance;
 import ir.cipher.tp28.peott28.Entity.Embeded.Engine;
+import ir.cipher.tp28.peott28.Entity.Obj.PlayerStatus;
 import ir.cipher.tp28.peott28.Entity.Obj.Region;
 import jakarta.persistence.*;
 import org.hibernate.proxy.HibernateProxy;
@@ -51,6 +52,18 @@ public class Player {
 
     @Embedded
     private Balance balance;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "player_status", nullable = false)
+    private PlayerStatus playerStatus;
+
+    public PlayerStatus getPlayerStatus() {
+        return playerStatus;
+    }
+
+    public void setPlayerStatus(PlayerStatus playerStatus) {
+        this.playerStatus = playerStatus;
+    }
 
     public Balance getBalance() {
         return balance;

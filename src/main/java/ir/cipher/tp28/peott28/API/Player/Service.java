@@ -5,6 +5,7 @@ import ir.cipher.tp28.peott28.API.Utils.Body.PlayerRegistrationBody;
 import ir.cipher.tp28.peott28.API.Utils.Res.PlayerData;
 import ir.cipher.tp28.peott28.Entity.Embeded.Balance;
 import ir.cipher.tp28.peott28.Entity.Embeded.Engine;
+import ir.cipher.tp28.peott28.Entity.Obj.PlayerStatus;
 import ir.cipher.tp28.peott28.Entity.Player;
 import ir.cipher.tp28.peott28.Exceptions.PlayerAlreadyExistsException;
 import ir.cipher.tp28.peott28.Exceptions.PlayerNotFoundException;
@@ -13,6 +14,7 @@ import ir.cipher.tp28.peott28.Entity.Obj.Region;
 import ir.cipher.tp28.peott28.Repo.PlayerRepository;
 import jakarta.transaction.Transactional;
 
+import javax.swing.text.html.Option;
 import java.util.LinkedHashSet;
 import java.util.Optional;
 import java.util.Set;
@@ -68,7 +70,7 @@ public class Service {
                 p.setFriends(friends);
             });
         }
-
+        player.setPlayerStatus(PlayerStatus.ACTIVE);
         player.setFriends(new LinkedHashSet<>());
         repo.save(player);
     }
@@ -105,6 +107,15 @@ public class Service {
         } else {
             throw new PlayerNotFoundException();
         }
+    }
+
+    public void updatePlayerStatus(long id, PlayerStatus status)
+            throws PlayerNotFoundException {
+        Optional<Player> opPl = repo.getByPlayerTelegramId(id);
+        opPl.ifPresent(p -> {
+            p.setPlayerStatus(status);
+        });
+        opPl.orElseThrow(PlayerNotFoundException::new);
     }
 
     private boolean anyRegion(String region){
