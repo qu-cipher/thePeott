@@ -72,4 +72,4 @@ GET ~/api/player/get
 
 ## License
 
-[GPL-3](https://opensource.org/license/gpl-3-0)
+[GNU General Public License](https://opensource.org/license/gpl-3-0)
