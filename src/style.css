@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-gradient: linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%);
+  font-family: "Sf-Pro-Medium", serif;
+  color-scheme: dark;
+}
+
+@font-face {
+  font-family: "Sf-Pro-Medium";
+  src: url("./assets/font/SFPRODISPLAYMEDIUM.OTF");
+}
+
+@font-face {
+  font-family: "Sf-Pro-Reg";
+  src: url("./assets/font/SFPRODISPLAYREGULAR.OTF");
+}
+
+body {
+  @apply bg-gray-900 text-gray-100;
+}
+
+.glass-effect {
+  @apply bg-gray-800/50 backdrop-blur-lg border border-gray-700/50;
+}

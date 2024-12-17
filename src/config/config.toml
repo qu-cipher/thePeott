@@ -1,0 +1,8 @@
+[server]
+backendBase="http://localhost:8080/api"
+
+[api]
+player=["register", "update"]
+
+[app]
+log=true # true | false
