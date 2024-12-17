@@ -5,6 +5,7 @@
 
 This is ThePeott Telegram App's official repository. ❗❗ **NOT FINISHED** ❗❗
 
+
 ## JPA Entities
 
 | **Data Fields \ Entity Name** |        **Player**        |
@@ -55,7 +56,20 @@ GET ~/api/player/get
 |:-----------------:|:--------------:|:------------:|:--------------------------------------:|
 |         id        |     _long_     |       ✓      | Player's telegram id to get id from it |
 
+
+
+## CommandLine
+
+| **Command Name** |             **Usage**             |         **Info.**         |
+|:----------------:|:---------------------------------:|:-------------------------:|
+|       help       |               _help_              |  Shows available commands |
+|       stop       |               _stop_              |    Stops the whole app    |
+|        say       |       _say [String message]_      |   Same as `echo` command  |
+|    Ban Player    | _ban_player [player-telegram-id]_ |       Bans a player       |
+|  Suspend Player  | _sus_player [player-telegram-id]_ |     Suspends a player     |
+|  Activate Player | _act_player [player-telegram-id]_ | Unban/Unsuspends a player |
+
+
 ## License
 
 [GPL-3](https://opensource.org/license/gpl-3-0)
-
