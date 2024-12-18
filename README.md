@@ -60,14 +60,15 @@ GET ~/api/player/get
 
 ## CommandLine
 
-| **Command Name** |             **Usage**             |         **Info.**         |
-|:----------------:|:---------------------------------:|:-------------------------:|
-|       help       |               _help_              |  Shows available commands |
-|       stop       |               _stop_              |    Stops the whole app    |
-|        say       |       _say [String message]_      |   Same as `echo` command  |
-|    Ban Player    | _ban_player [player-telegram-id]_ |       Bans a player       |
-|  Suspend Player  | _sus_player [player-telegram-id]_ |     Suspends a player     |
-|  Activate Player | _act_player [player-telegram-id]_ | Unban/Unsuspends a player |
+| **Command Name** 	|                                  **Usage**                                 	|                      **Info.**                     	|
+|:----------------:	|:--------------------------------------------------------------------------:	|:--------------------------------------------------:	|
+|       help       	|                                   _help_                                   	|              Shows available commands              	|
+|       stop       	|                                   _stop_                                   	|                 Stops the whole app                	|
+|        say       	|                           _say [String message]_                           	|               Same as `echo` command               	|
+|  Register Player 	| _rgstr_player [player-id] [username] [avatar_url] [region] [inviter \| 0]_ 	| Registers a player (use 0 if no inviter specified) 	|
+|    Ban Player    	|                      _ban_player [player-telegram-id]_                     	|                    Bans a player                   	|
+|  Suspend Player  	|                      _sus_player [player-telegram-id]_                     	|                  Suspends a player                 	|
+|  Activate Player 	|                      _act_player [player-telegram-id]_                     	|              Unban/Unsuspends a player             	|
 
 
 ## License
