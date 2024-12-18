@@ -1,20 +1,25 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
-import { CurrencyDollarIcon, GiftIcon, Cog6ToothIcon } from '@heroicons/vue/24/solid'
+import { ref } from 'vue';
+import { useViewportPosition } from '../composables/useViewportPosition';
+import { CurrencyDollarIcon, GiftIcon, Cog6ToothIcon } from '@heroicons/vue/24/solid';
+import { useRouter } from 'vue-router';
 
-const primaryCoins = ref(123456789)
-const secondaryCoins = ref(1234)
+const primaryCoins = ref(123456789);
+const secondaryCoins = ref(1234);
+const { topOffset } = useViewportPosition(5); // 5vh from top
 
 const router = useRouter();
 
 const openSettings = () => {
-  router.push('/settings')
-}
+  router.push('/settings');
+};
 </script>
 
 <template>
-  <div class="fixed top-10 left-1/2 -translate-x-1/2 z-50">
+  <div 
+    class="coins-section fixed left-1/2 -translate-x-1/2 z-50"
+    :style="{ top: `${topOffset}px` }"
+  >
     <div class="glass-effect rounded-full px-3 py-1.5 flex gap-3 shadow-lg scale-90">
       <div class="flex items-center gap-1">
         <CurrencyDollarIcon class="w-3.5 h-3.5 text-primary-400" />
@@ -33,9 +38,3 @@ const openSettings = () => {
     </div>
   </div>
 </template>
-
-<style scoped>
-.glass-effect {
-  margin-top: env(safe-area-inset-top);
-}
-</style>
