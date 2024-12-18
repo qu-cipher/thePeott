@@ -53,7 +53,7 @@ const buyItem = (itemId: string) => {
             description: '',
             price: 0,
             inventory: 0,
-            image: ''
+            image: '../../assets/lg.png'
           }"
           :loading="true"
         />
