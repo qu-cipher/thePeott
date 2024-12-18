@@ -8,17 +8,18 @@ This is ThePeott Telegram App's official repository. ❗❗ **NOT FINISHED** ❗
 
 ## JPA Entities
 
-| **Data Fields \ Entity Name** |        **Player**        |
-|:-----------------------------:|:------------------------:|
-|               *               |   telegramId \| _long_   |
-|               *               |   username \| _String_   |
-|               *               |   avatarUrl \| _String_  |
-|               *               |  inviteCode \| _String_  |
-|               *               |    refCode \| _String_   |
-|               *               |    region \| _Region_    |
-|               *               | friends \| _Set<Player>_ |
-|               *               |    engine \| _Engine_    |
-|               *               |   balance \| _Balance_   |
+| **Data Fields \ Entity Name** 	|           **Player**           	|
+|:-----------------------------:	|:------------------------------:	|
+|               *               	|      telegramId \| _long_      	|
+|               *               	|      username \| _String_      	|
+|               *               	|      avatarUrl \| _String_     	|
+|               *               	|     inviteCode \| _String_     	|
+|               *               	|       refCode \| _String_      	|
+|               *               	|       region \| _Region_       	|
+|               *               	|        friends \| _Set_        	|
+|               *               	|       engine \| _Engine_       	|
+|               *               	|      balance \| _Balance_      	|
+|               *               	| playerStatus \| _PlayerStatus_ 	|
 
 ## API Reference
 
