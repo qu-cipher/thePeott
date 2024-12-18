@@ -57,7 +57,9 @@ public class Service {
         player.setBalance(balance);
 
         player.setInviteCode("pt-"+b.getTelegramId());
-        if (b.getRefCode() != null && !b.getRefCode().isEmpty()){
+        if (b.getRefCode() != null
+                && !b.getRefCode().isEmpty()
+                && !b.getRefCode().equals("0")){
             Optional<Player> inviter = repo.getByInviteCode(b.getRefCode());
             inviter.ifPresent(p -> {
                 Set<Player> friends = null;
