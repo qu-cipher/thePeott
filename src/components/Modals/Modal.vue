@@ -7,16 +7,15 @@ const props = defineProps<{
 }>();
 
 const emit = defineEmits<{
-  (e: 'close-modal'): void;
+  (e: 'close'): void;
 }>();
 
 const modalRef = ref<HTMLDivElement | null>(null);
 const closeModal = () => {
     if (modalRef.value) {
         modalRef.value.classList.add('modal-leave');
-        modalRef.value.classList.remove('modal-enter');
         setTimeout(() => {
-            emit('close-modal');
+            emit('close');
         }, 300);
     }
 };

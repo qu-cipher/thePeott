@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import Modal from './Modal.vue';
-import { defineProps } from 'vue';
 
 const props = defineProps({
   show: {
@@ -24,7 +23,7 @@ const props = defineProps({
           </p><br>
           <button 
             class="modal-button"
-            @click="$emit('close-modal')"
+            @click="$emit('close')"
           >
             Get Started
           </button>

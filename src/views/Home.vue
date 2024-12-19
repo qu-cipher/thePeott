@@ -1,18 +1,20 @@
 <script setup lang="ts">
 import { ref, onMounted, watch } from 'vue';
+import { useFirstVisit } from '../composables/useFirstVisit';
+import confetti from 'canvas-confetti';
+
 import CoinsSection from '../components/CoinsSection.vue';
 import SquadSection from '../components/SquadSection.vue';
 import EngineSection from '../components/EngineSection.vue';
 import Navigation from '../components/Navigation.vue';
 import AnnouncementModal from '../components/Modals/AnnouncementModal.vue';
-import { useFirstVisit } from '../composables/useFirstVisit';
-import confetti from 'canvas-confetti';
+
 
 const { isFirstVisit, checkFirstVisit } = useFirstVisit();
 
 var duration = 2 * 1000;
 var animationEnd = Date.now() + duration;
-var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 200 };
+var defaults = { startVelocity: 15, spread: 360, ticks: 60, zIndex: 200 };
 
 function randomInRange(min: number, max: number): number {
   return Math.random() * (max - min) + min;
@@ -26,9 +28,9 @@ function triggerConfetti() {
     return clearInterval(interval);
   }
 
-  var particleCount = 50 * (timeLeft / duration);
-  confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } });
-  confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } });
+  var particleCount = 30 * (timeLeft / duration);
+  confetti({ ...defaults, particleCount, origin: { x: randomInRange(0, 0.5), y: Math.random() } });
+  confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.6, 0.9), y: Math.random() } });
 }, 300);
 }
 
@@ -40,6 +42,8 @@ onMounted(() => {
     }
   }, { immediate: true });
 });
+
+const show = true;
 </script>
 
 

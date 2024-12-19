@@ -1,6 +1,5 @@
 <script setup>
 import { useRouter } from 'vue-router';
-import { ChevronLeftIcon } from '@heroicons/vue/24/outline';
 
 const prop = defineProps({
     title: {
@@ -19,8 +18,7 @@ const goBack = () => {
 <template>
     <header class="ios-header">
       <button class="back-btn" @click="goBack">
-        <ChevronLeftIcon class="chevronr"/>
-        <h1>{{ prop.title }}</h1>
+        <h1>← {{ prop.title }}</h1>
       </button>
     </header>
 </template>

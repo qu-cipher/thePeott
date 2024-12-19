@@ -18,8 +18,10 @@ const navigateToSection = (section) => {
 };
 
 const clearCache = () => {
-  localStorage.clear()
-}
+  if(confirm("Are you sure you want to clear cache?")) {
+    localStorage.clear();
+  } 
+};
 </script>
 
 <template>
