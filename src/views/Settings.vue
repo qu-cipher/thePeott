@@ -6,6 +6,8 @@ import ViewHeader from '../components/ViewHeader.vue';
 const appVersion = '1.0.0';
 const releaseDate = '2024-02-21';
 
+const tg = window.Telegram.WebApp;
+
 const settings = ref({
   notifications: true,
   soundEffects: true,
@@ -18,9 +20,19 @@ const navigateToSection = (section) => {
 };
 
 const clearCache = () => {
-  if(confirm("Are you sure you want to clear cache?")) {
-    localStorage.clear();
-  } 
+  tg.showPopup({
+    title: 'Clear Cache',
+    message: 'Are you sure you want to clear the app cache?',
+    buttons: [
+      { text: 'OK', type: 'ok', id: 'ok' },
+      { text: 'Cancel', type: 'cancel', id: 'cancel' }
+    ]
+  }, (buttonId) => {
+    if (buttonId === 'ok') {
+      localStorage.clear();
+      tg.showAlert("Cache cleared successfully!");
+    }
+  });
 };
 </script>
 

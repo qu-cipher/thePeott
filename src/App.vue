@@ -8,7 +8,6 @@ import LoadingEngineSection from './components/loading/LoadingEngineSection.vue'
 const { isLoading, finishLoading } = useAppLoading();
 
 onMounted(async () => {
-  // Simulate initial data loading
   await new Promise(resolve => setTimeout(resolve, 1500));
   finishLoading();
 });
