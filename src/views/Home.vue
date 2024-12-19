@@ -29,7 +29,7 @@ function triggerConfetti() {
   var particleCount = 50 * (timeLeft / duration);
   confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } });
   confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } });
-}, 250);
+}, 300);
 }
 
 onMounted(() => {

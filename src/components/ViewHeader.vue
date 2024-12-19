@@ -27,16 +27,8 @@ const goBack = () => {
 
 <style lang="css" scoped>
 .ios-header {
-  background: #242424;
-  backdrop-filter: blur(10px);
-  padding: 3rem 1rem 2rem 1rem;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content:center;
-  height: 60px;
+  @apply sticky inset-0 bg-black/75 backdrop-blur-sm z-50
+  flex items-center justify-center p-2 h-16; 
 }
 
 .ios-header h1 {

@@ -7,7 +7,7 @@ const props = defineProps<{
 }>();
 
 const emit = defineEmits<{
-  (e: 'close'): void;
+  (e: 'close-modal'): void;
 }>();
 
 const modalRef = ref<HTMLDivElement | null>(null);
@@ -16,7 +16,7 @@ const closeModal = () => {
         modalRef.value.classList.add('modal-leave');
         modalRef.value.classList.remove('modal-enter');
         setTimeout(() => {
-            emit('close');
+            emit('close-modal');
         }, 300);
     }
 };

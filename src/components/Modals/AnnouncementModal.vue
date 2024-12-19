@@ -24,7 +24,7 @@ const props = defineProps({
           </p><br>
           <button 
             class="modal-button"
-            @click="$emit('close')"
+            @click="$emit('close-modal')"
           >
             Get Started
           </button>
