@@ -6,7 +6,7 @@ import { useRouter } from 'vue-router';
 
 const primaryCoins = ref(123456789);
 const secondaryCoins = ref(1234);
-const { topOffset } = useViewportPosition(5); // 5vh from top
+const { topOffset } = useViewportPosition(2);
 
 const router = useRouter();
 
@@ -20,13 +20,13 @@ const openSettings = () => {
     class="coins-section fixed left-1/2 -translate-x-1/2 z-50"
     :style="{ top: `${topOffset}px` }"
   >
-    <div class="glass-effect rounded-full px-3 py-1.5 flex gap-3 shadow-lg scale-90">
+    <div class="glass-effect rounded-full px-3 py-2 flex gap-4 shadow-lg scale-180">
       <div class="flex items-center gap-1">
-        <CurrencyDollarIcon class="w-3.5 h-3.5 text-primary-400" />
-        <span class="text-xs font-medium">{{ primaryCoins.toLocaleString() }}</span>
+        <CurrencyDollarIcon class="w-4 h-4 text-primary-400" />
+        <span class="text-sm font-medium">{{ primaryCoins.toLocaleString() }}</span>
       </div>
       <div class="flex items-center gap-1">
-        <GiftIcon class="w-3.5 h-3.5 text-purple-400" />
+        <GiftIcon class="w-4 h-4 text-purple-400" />
         <span class="text-xs font-medium">{{ secondaryCoins.toLocaleString() }}</span>
       </div>
       <button 

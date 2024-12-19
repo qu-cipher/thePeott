@@ -16,6 +16,10 @@ const settings = ref({
 const navigateToSection = (section) => {
   console.log(`Navigate to ${section}`);
 };
+
+const clearCache = () => {
+  localStorage.clear()
+}
 </script>
 
 <template>
@@ -104,6 +108,15 @@ const navigateToSection = (section) => {
         </div>
         <div class="settings-item" @click="navigateToSection('terms')">
           <span>Terms of Service</span>
+          <ChevronRightIcon class="chevron" />
+        </div>
+      </div>
+
+      <!-- Developer options -->
+      <div class="settings-group">
+        <h3>Developer</h3>
+        <div class="settings-item" @click="clearCache()">
+          <span>Clear cache</span>
           <ChevronRightIcon class="chevron" />
         </div>
       </div>
