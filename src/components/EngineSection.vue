@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { FireIcon, BeakerIcon, WrenchIcon } from '@heroicons/vue/24/outline'
-import Engine from './Engine.vue'
+import { ref, computed } from 'vue'
+import { FireIcon, BeakerIcon, WrenchIcon, BoltIcon } from '@heroicons/vue/24/outline'
 
 const miningRate = ref(1.5)
 const minedCoins = ref(100)
@@ -13,36 +12,39 @@ const toggleEngine = () => {
   isRunning.value = !isRunning.value
 }
 
-const claim = () => {
-  // Claim logic will be implemented here
-}
+const boltIconColor = computed(() => (isRunning.value ? 'text-gold-400 w-24 h-24' : 'text-gray-600 w-16 h-16'))
+const animateText = computed(() => (isRunning.value ? "text-emeral-400 animate-blink" : "text-red-400"))
 </script>
 
 <template>
   <div class="engine-section mx-auto max-w-sm">
     <div class="glass-effect rounded-xl overflow-hidden">
-      <div class="engine-canvas relative aspect-video bg-gradient-to-br from-gray-800 to-gray-900">
-         <Engine />
+      <div class="engine-canvas relative aspect-video bg-gradient-to-br from-gray-800 to-gray-900 flex flex-col items-center justify-center">
+        <BoltIcon 
+          class="transition-all duration-1000 ease-in-out"
+          :class="boltIconColor"
+        />
+        <p class="text-white mt-2 text-sm" :class="animateText">{{ isRunning ? "Mining..." : "Stopped" }}</p>
       </div>
       
       <div class="p-4 space-y-4">
         <div class="grid grid-cols-2 gap-3">
           <div class="flex items-center gap-2 text-sm">
-            <FireIcon class="w-4 h-4 text-orange-400" />
+            <FireIcon class="w-6 h-6 text-orange-400" />
             <div class="flex flex-col">
               <span class="text-xs text-gray-500">Mining Rate</span>
               <span class="font-medium">{{ miningRate }}/s</span>
             </div>
           </div>
           <div class="flex items-center gap-2 text-sm">
-            <BeakerIcon class="w-4 h-4 text-green-400" />
+            <BeakerIcon class="w-6 h-6 text-green-400" />
             <div class="flex flex-col">
               <span class="text-xs text-gray-500">Mined</span>
               <span class="font-medium">{{ minedCoins }}</span>
             </div>
           </div>
           <div class="flex items-center gap-2 text-sm">
-            <WrenchIcon class="w-4 h-4 text-blue-400" />
+            <WrenchIcon class="w-6 h-6 text-blue-400" />
             <div class="flex flex-col">
               <span class="text-xs text-gray-500">Gas Usage</span>
               <span class="font-medium">{{ gasUsage }}/s</span>
@@ -56,7 +58,7 @@ const claim = () => {
         </div>
 
         <div class="flex gap-3">
-          <button @click="claim" class="flex-1 bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-lg font-medium transition">
+          <button class="flex-1 bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-lg font-medium transition">
             Claim
           </button>
           <button 
@@ -71,3 +73,22 @@ const claim = () => {
     </div>
   </div>
 </template>
+
+<style scoped>
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.1;
+  }
+}
+
+.animate-blink {
+  animation: blink 3s infinite;
+}
+
+.text-gold-400 {
+  color: #ffd700;
+}
+</style>

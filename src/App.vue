@@ -14,8 +14,8 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div id="app" class="min-h-screen">
-    <template v-if="isLoading">
+  <div id="app">
+    <!-- <template v-if="isLoading">
       <div class="loading-app animate-fade-in">
         <LoadingCoinsSection />
         <div class="container mx-auto px-4 pt-16 space-y-6">
@@ -23,8 +23,8 @@ onMounted(async () => {
           <LoadingEngineSection />
         </div>
       </div>
-    </template>
-    <router-view v-else v-slot="{ Component }">
+    </template> -->
+    <router-view v-slot="{ Component }" class="safe-area min-h-screen pb-20 space-y-6">
       <transition name="fade" mode="out-in">
         <component :is="Component" />
       </transition>
@@ -57,5 +57,10 @@ onMounted(async () => {
 
 .animate-fade-in {
   animation: fade-in 0.3s ease-out forwards;
+}
+
+.safe-area {
+  padding-top: var(--tg-content-safe-area-inset-top);
+  padding-bottom: var(--tg-content-safe-area-inset-bottom);
 }
 </style>

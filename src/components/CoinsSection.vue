@@ -6,7 +6,6 @@ import { useRouter } from 'vue-router';
 
 const primaryCoins = ref(123456789);
 const secondaryCoins = ref(1234);
-const { topOffset } = useViewportPosition(2);
 
 const router = useRouter();
 
@@ -18,7 +17,6 @@ const openSettings = () => {
 <template>
   <div 
     class="coins-section fixed left-1/2 -translate-x-1/2 z-50"
-    :style="{ top: `${topOffset}px` }"
   >
     <div class="glass-effect rounded-full px-3 py-2 flex gap-4 shadow-lg scale-180">
       <div class="flex items-center gap-1">
