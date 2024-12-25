@@ -1,4 +1,4 @@
-#  ThePeott Official GitHub Repository 
+#  ThePeott Official Repository (Telegram bot source) 
 
 ## Branches: 
 - [BackEnd](https://github.com/qu-cipher/thePeott/tree/back)
