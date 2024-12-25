@@ -1,0 +1,31 @@
+{
+  "name": "thepeott_bot",
+  "version": "1.0.0",
+  "description": "This is ThePeott web app's telegram bot source.",
+  "main": "app.ts",
+  "scripts": {
+    "bot": "tsx Bot.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "*"
+  },
+  "keywords": [
+    "bot",
+    "telegram bot"
+  ],
+  "author": "QuantumCipherr",
+  "license": "SEE LICENSE IN LICENSE",
+  "dependencies": {
+    "@grammyjs/commands": "^1.0.3",
+    "axios": "^1.7.9",
+    "dotenv": "^16.4.7",
+    "grammy": "^1.33.0",
+    "telegraf": "^4.16.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
