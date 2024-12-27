@@ -128,7 +128,7 @@ public class Commands {
                 .substring(10));
         try {
             playerService.updatePlayerStatus(id, PlayerStatus.BANNED);
-            logger.info("Player Banned!");
+            logger.info("Player <"+id+"> Banned!");
         } catch (PlayerNotFoundException e) {
             logger.error("Player <" + id + "> Not Found.");
         }
