@@ -5,19 +5,19 @@ import handleGetFriendsCommand from './handlers/FriendsCommand'
 import dotenv from "dotenv";
 import {
     CommandGroup,
-    commandNotFound,
-    commands,
-    type CommandsFlavor,
   } from "@grammyjs/commands";
   
 dotenv.config();
 
-const bot = new Bot(process.env.BOT_TOKEN);
+const base = process.env.BASE_URL;
+const token = process.env.BOT_TOKEN;
+
+const bot = new Bot(token);
 console.log("Bot has started successfully.");
 
 const botCommands = new CommandGroup();
-botCommands.command("start", "Start bot / Check registration", c => {handleStartCommand(c)});
-botCommands.command("friends", "Check hoomies you have invited", c => {handleGetFriendsCommand(c)});
+botCommands.command("start", "Start bot / Check registration", c => {handleStartCommand(c, base)});
+botCommands.command("friends", "Check hoomies you have invited", c => {handleGetFriendsCommand(c, base)});
 
 bot.use(botCommands);
 
@@ -30,7 +30,7 @@ bot.on("inline_query", (ctx) => {
             description: 'Share your invite link to a friend',
         }
     ).text(
-        "Come join me on ThePeott and prepare ourselves for the release!\n👇 Click the link below 👇\n\n" +
+        "Come join me on ThePeott and lets prepare ourselves for the release!\n👇 Click the link below 👇\n\n" +
         `<a href='https://t.me/ThePeottBeta_bot?start=pt-${ctx.from?.id}'>══✿══╡°˖✧ ThePeott ✧˖°╞══✿══</a>`,
         { parse_mode: "HTML" }
     );
